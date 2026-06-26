@@ -1,0 +1,35 @@
+.lesson { padding: 22px 32px 26px; min-width: 0; min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
+.lesson-heading { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 12px; }
+.eyebrow { margin: 0 0 3px; font-size: 9px; letter-spacing: .2em; font-weight: 800; color: var(--coral); }
+h1 { font-family: Georgia, "Songti SC", serif; font-weight: 500; font-size: clamp(23px, 1.9vw, 31px); margin: 0; letter-spacing: .035em; }
+.lesson-switch { text-align: right; display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--muted); }
+.lesson-switch b { background: var(--cream); color: var(--ink); padding: 8px 13px; border-radius: 99px; }
+.lesson-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(235px, 250px); gap: 14px; min-height: 0; overflow: hidden; flex: 1; }
+.phrase-panel, .pinyin-panel { min-height: 0; border: 1px solid var(--line); border-radius: 20px; padding: 14px 16px; overflow: hidden; background: #fff; }
+.phrase-panel { overflow-y: auto; overflow-x: visible; }
+.phrase-panel::-webkit-scrollbar, .pinyin-panel::-webkit-scrollbar, .pinyin-mini::-webkit-scrollbar, .side-toolbox::-webkit-scrollbar { width: 5px; }
+.phrase-panel::-webkit-scrollbar-thumb, .pinyin-panel::-webkit-scrollbar-thumb, .pinyin-mini::-webkit-scrollbar-thumb, .side-toolbox::-webkit-scrollbar-thumb { background: #bfded5; border-radius: 99px; }
+.pinyin-panel { background: linear-gradient(160deg, #f4fbf8, #fffaf0); display: grid; align-content: start; gap: 10px; overflow-y: auto; }
+.side-toolbox { display: none; }
+.side-toolbox::before { content: ""; position: absolute; left: -31px; top: 70px; width: 52px; height: 36px; background: inherit; border-left: 2px solid rgba(145,218,198,.72); border-bottom: 2px solid rgba(145,218,198,.72); border-radius: 0 0 0 28px; transform: skewX(-28deg) rotate(10deg); box-shadow: -8px 10px 18px rgba(52,119,112,.07); }
+.side-toolbox::after { content: "➜"; position: absolute; right: 22px; top: 24px; color: var(--green); font-size: 24px; font-weight: 900; }
+.pinyin-mini { min-height: 0; border: 1px solid rgba(168,222,205,.78); border-radius: 18px; padding: 10px; max-height: none; overflow-y: auto; background: rgba(255,255,255,.72); box-shadow: 0 9px 22px rgba(52,119,112,.08); }
+.pinyin-mini .section-label { margin-bottom: 8px; }
+.tool-arrow { height: 1px; border-top: 2px dashed rgba(95,196,154,.55); margin: 0 42px 22px 4px; }
+.tool-arrow span { display: none; }
+.side-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.side-head b { color: var(--coral); font-size: 12px; }
+.side-empty { color: var(--muted); font-size: 12px; }
+.grammar-inline { color: var(--ink); font-size: 13px; line-height: 1.7; background: #fff8ed; border: 1px solid #ffe0c8; border-radius: 14px; padding: 13px; }
+.section-label { font-size: 10px; color: var(--muted); font-weight: 700; letter-spacing: .1em; margin-bottom: 9px; }
+.section-label span { color: var(--coral); margin-right: 8px; }
+.phrase-list { display: grid; gap: 8px; height: auto; align-content: start; }
+.phrase-card { border: 1px solid var(--line); padding: 10px 14px; border-radius: 14px; display: grid; align-content: start; min-height: 0; cursor: pointer; transition: .18s ease; }
+.phrase-card.menu-open { position: relative; z-index: 30; overflow: visible; }
+.phrase-card:hover { border-color: #b7e3d6; transform: translateY(-1px); }
+.phrase-card.active { border-color: #a8ded3; background: linear-gradient(115deg, #f1fcf8, #fffaf2); box-shadow: inset 4px 0 0 var(--green), 0 9px 22px rgba(70,172,143,.12); }
+.phrase-main { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.phrase-note { margin-top: 6px; color: #55727c; font-size: 10px; line-height: 1.45; background: rgba(255,248,237,.82); border: 1px solid #ffe0c8; border-radius: 10px; padding: 7px 9px; max-width: 560px; }
+.phrase-note span { margin-right: 5px; }
+.builder-card { align-content: start; padding: 11px 14px; }
+.builder-card .phrase-main { align-items: flex-start; }

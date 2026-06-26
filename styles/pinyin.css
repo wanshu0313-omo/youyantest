@@ -1,0 +1,13 @@
+.pinyin-intro { color: var(--muted); font-size: 10px; line-height: 1.45; margin: 0 0 8px; }
+.tone-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 14px; }
+.tone { border: 1px solid var(--line); border-radius: 12px; background: white; padding: 8px 2px; cursor: pointer; }
+.tone:hover { border-color: var(--coral); }
+.tone b, .tone span, .tone small { display: block; }.tone b { color: var(--coral); font-family: Georgia, serif; font-size: 25px; }.tone span { font-size: 10px; font-weight: 700; }.tone small { font-size: 8px; color: var(--muted); margin-top: 2px; }
+.pinyin-group + .pinyin-group { margin-top: 9px; }
+.group-title { display: inline-flex; align-items: center; min-height: 24px; border-radius: 999px; padding: 4px 9px; background: #effcf7; color: #3e8f78; font-size: 11px; font-weight: 900; margin-bottom: 6px; box-shadow: inset 0 1px 0 rgba(255,255,255,.74); }
+.syllable-grid { display: flex; flex-wrap: wrap; gap: 5px; }
+.syllable-grid button { min-width: 34px; height: 29px; padding: 0 7px; border: 1px solid var(--line); border-radius: 9px; background: white; color: var(--ink); font-family: Georgia, serif; font-size: 13px; cursor: pointer; }
+.syllable-grid button:hover { color: var(--coral); border-color: var(--coral); }.syllable-grid span { color: var(--muted); font-size: 8px; margin-left: 4px; }
+.syllable-grid .compare-mark { min-width: auto; height: 31px; display: inline-grid; place-items: center; margin: 0 1px; color: var(--coral); font-family: Inter, "Noto Sans SC", sans-serif; font-size: 10px; font-weight: 900; letter-spacing: .04em; }
+.tip { margin-top: 9px; border-radius: 12px; background: #eaf8f2; color: #56796e; padding: 8px 10px; font-size: 9px; line-height: 1.45; border-left: 3px solid var(--green); }
+.tip span { color: var(--green); font-weight: 800; margin-right: 7px; }

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="给我亲爱的朋友们，一起轻松学汉语和拼音。" />
+  <title>友言 · Chinese for Friends</title>
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/header.css" />
+  <link rel="stylesheet" href="styles/sidebar.css" />
+  <link rel="stylesheet" href="styles/lesson-layout.css" />
+  <link rel="stylesheet" href="styles/sentence-builder.css" />
+  <link rel="stylesheet" href="styles/pinyin.css" />
+  <link rel="stylesheet" href="styles/quiz.css" />
+  <link rel="stylesheet" href="styles/message-board.css" />
+  <link rel="stylesheet" href="styles/drawer-grammar.css" />
+  <link rel="stylesheet" href="styles/overlays.css" />
+  <link rel="stylesheet" href="styles/responsive.css" />
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <button class="brand" id="homeButton" aria-label="Go to today's lesson">
+        <span class="brand-mark">友</span>
+        <span><b>友言</b><small id="brandTagline">Chinese for my dear friends</small></span>
+      </button>
+      <div class="header-actions">
+        <span class="progress-pill" id="progressText"><i></i> A little Chinese every day</span>
+        <div class="language-picker" aria-label="Choose system language">
+          <span class="globe" aria-hidden="true">🌐</span>
+          <span class="language-label" id="languageLabel">Choose system language</span>
+          <div class="flag-list" id="languageSelect">
+            <button class="flag active" data-language="en" aria-label="English" title="English">🇺🇸</button>
+            <button class="flag" data-language="ja" aria-label="日本語" title="日本語">🇯🇵</button>
+            <button class="flag" data-language="ko" aria-label="한국어" title="한국어">🇰🇷</button>
+            <button class="flag" data-language="zh" aria-label="中文" title="中文">🇨🇳</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <nav class="rail" id="lessonNav" aria-label="Lesson navigation">
+        <div class="day-nav-head">
+          <button class="mini-calendar-button" id="openCalendar" aria-label="Open calendar" aria-expanded="false">
+            <span>📅</span>
+            <b id="dailyNavTitle">Daily lessons</b>
+          </button>
+          <small id="dailyNavHint">Scroll through days</small>
+          <div class="mini-calendar-menu" id="calendarMenu" aria-hidden="true"></div>
+        </div>
+        <div class="day-scroll" id="dayRail"></div>
+        <div class="rail-actions">
+          <div class="rail-line"></div>
+          <button class="rail-button system-trigger" id="openCurriculum">
+            <span class="system-icon">P</span>
+            <small id="systemNav">Pinyin course</small>
+            <em id="systemHint">Start here →</em>
+          </button>
+          <button class="rail-button wish-trigger" id="openWishBoard" aria-label="Open message board">
+            <span class="wish-icon">✎</span>
+            <small id="wishNav">Message</small>
+            <em id="wishTrigger">I want to learn...</em>
+          </button>
+        </div>
+      </nav>
+
+      <section class="lesson" id="lessonView" aria-live="polite">
+        <div class="lesson-heading">
+          <div>
+            <p class="eyebrow" id="lessonDate">TODAY · 02</p>
+            <h1 id="lessonTitle">先认识一下吧！</h1>
+          </div>
+          <div class="lesson-switch" id="lessonSwitch"></div>
+        </div>
+
+        <div class="lesson-grid">
+          <article class="phrase-panel">
+            <div class="section-label"><span>01</span><b id="phraseSection">Useful phrases</b></div>
+            <div class="phrase-list" id="phraseList"></div>
+          </article>
+
+          <aside class="pinyin-panel">
+            <div class="side-toolbox" id="sideToolbox"></div>
+            <div class="pinyin-mini">
+              <div class="section-label"><span>02</span><b id="pinyinSection">Today's pinyin</b></div>
+              <div id="pinyinContent"></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="curriculumDrawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div><p id="drawerEyebrow">PINYIN MAP</p><h2 id="drawerTitle">Pinyin learning path</h2></div>
+      <button id="closeCurriculum" aria-label="Close">×</button>
+    </div>
+    <p class="drawer-intro" id="drawerIntro">Start with sound, one tiny step at a time.</p>
+    <div class="curriculum-list" id="curriculumList"></div>
+    <div class="drawer-note"><span>✦</span><b id="drawerNote">More lessons are on the way</b></div>
+  </aside>
+
+  <div class="modal-backdrop" id="wishBackdrop"></div>
+  <section class="wish-modal" id="wishModal" aria-hidden="true" aria-labelledby="wishTitle">
+    <button class="modal-close" id="closeWishBoard" aria-label="Close">×</button>
+    <div class="wish-head">
+      <div>
+        <p class="eyebrow" id="wishEyebrow">SAY IT IN CHINESE</p>
+        <h2 id="wishTitle">I want to learn</h2>
+      </div>
+      <small id="wishIntro">Write any sentence in your own language.</small>
+    </div>
+    <form class="wish-form" id="wishForm">
+      <input id="wishInput" maxlength="90" autocomplete="off" placeholder="Type a sentence you want to learn..." />
+      <button type="submit" id="wishSubmit">Add</button>
+    </form>
+    <div class="wish-list" id="wishList" aria-live="polite"></div>
+  </section>
+
+  <div class="grammar-backdrop" id="grammarBackdrop"></div>
+  <section class="grammar-modal" id="grammarModal" aria-hidden="true" aria-labelledby="grammarTitle">
+    <button class="modal-close" id="closeGrammar" aria-label="Close">×</button>
+    <p class="eyebrow" id="grammarEyebrow">GRAMMAR TIP</p>
+    <h2 id="grammarTitle">Grammar</h2>
+    <p id="grammarText"></p>
+  </section>
+
+  <div class="toast" id="toast" role="status"></div>
+  <div class="day-preview" id="dayPreview" role="tooltip" aria-hidden="true">
+    <span id="previewLabel">TODAY’S LESSON</span>
+    <b id="previewTitle"></b>
+    <small id="previewSummary"></small>
+  </div>
+  <script src="data/lessons.js"></script>
+  <script src="data/weekend-quiz.js"></script>
+  <script src="data/lesson-2026-06-27.js"></script>
+  <script src="data/lesson-2026-06-28.js"></script>
+  <script src="data/lesson-2026-06-26.js"></script>
+  <script src="data/lesson-2026-06-25.js"></script>
+  <script src="data/lesson-2026-06-22.js"></script>
+  <script src="data/lesson-order.js"></script>
+  <script src="data/curriculum.js"></script>
+  <script src="data/wishes.js"></script>
+
+  <script src="scripts/core.js"></script>
+  <script src="scripts/language.js"></script>
+  <script src="scripts/audio.js"></script>
+  <script src="scripts/message-board.js"></script>
+  <script src="scripts/sentence-builder.js"></script>
+  <script src="scripts/weekend-quiz.js"></script>
+  <script src="scripts/lesson-renderer.js"></script>
+  <script src="scripts/curriculum-drawer.js"></script>
+  <script src="scripts/grammar.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
