@@ -1,7 +1,7 @@
 @media (max-height: 740px) and (min-width: 800px) { .shell { height: calc(100vh - 20px); min-height: 560px; margin: 10px auto; }.lesson { padding-top: 20px; padding-bottom: 20px; }.lesson-heading { margin-bottom: 12px; }.phrase-card { padding-top: 7px; padding-bottom: 7px; }.tip { margin-top: 8px; }.pinyin-group + .pinyin-group { margin-top: 7px; }.wish-board { height: 132px; margin-top: 10px; padding-top: 10px; padding-bottom: 10px; }.wish-note { min-height: 88px; }.wish-head h2 { font-size: 22px; }.wish-head small { margin-top: 5px; }.wish-form input, .wish-form button { height: 38px; } }
-@media (max-width: 800px) {
+@media (max-width: 800px), (max-aspect-ratio: 4/5) {
   body { overflow: auto; }
-  .shell { width: 100%; height: auto; min-height: 100vh; margin: 0; border-radius: 0; }
+  .shell { width: 100%; height: auto; min-height: 100vh; margin: 0; border-radius: 0; overflow: visible; }
   .progress-pill, .language-label, .globe { display: none; }
   header { padding: 0 14px; }
   .brand b { font-size: 17px; }
