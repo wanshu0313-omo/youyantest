@@ -1,4 +1,19 @@
 /* 页面事件绑定与启动。 */
+function revealOpenSlotMenu() {
+  requestAnimationFrame(() => {
+    const menu = document.querySelector(".slot-wrap.open .slot-menu");
+    if (!menu) return;
+    const bounds = menu.getBoundingClientRect();
+    const compactNavigation = window.matchMedia("(max-width: 800px), (max-aspect-ratio: 4/5)").matches;
+    const safeTop = compactNavigation ? 96 : 18;
+    const safeBottom = window.innerHeight - 18;
+    if (bounds.top >= safeTop && bounds.bottom <= safeBottom) return;
+
+    const desiredTop = Math.max(safeTop, Math.min(bounds.top, safeBottom - bounds.height));
+    window.scrollBy({ top: bounds.top - desiredTop, behavior: "smooth" });
+  });
+}
+
 document.addEventListener("click", (event) => {
   const quizAudio = event.target.closest("[data-quiz-audio]");
   if (quizAudio) {
@@ -75,6 +90,7 @@ document.addEventListener("click", (event) => {
     state.phraseIndex = Number(slotToggle.dataset.phraseIndex);
     state.openSlot = state.openSlot === slotToggle.dataset.slotToggle ? null : slotToggle.dataset.slotToggle;
     renderLesson();
+    if (state.openSlot) revealOpenSlotMenu();
     return;
   }
   const deleteButton = event.target.closest("[data-delete-wish]");
