@@ -173,4 +173,10 @@
   .wish-form { grid-template-columns: 1fr; }
   .wish-modal .wish-list { max-height: 48vh; }
   .wish-note { grid-template-columns: 1fr 34px; }
+
+  /* 手机标签栏保持在页面上方；打开的学习目录和留言板再覆盖到它之上。 */
+  .drawer-backdrop { z-index: 100; }
+  .drawer { z-index: 101; }
+  .modal-backdrop { z-index: 110; }
+  .wish-modal { z-index: 111; }
 }
