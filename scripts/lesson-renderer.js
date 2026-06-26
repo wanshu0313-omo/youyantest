@@ -209,5 +209,21 @@ function renderLesson() {
     renderSideToolbox();
   }
   renderDayRail();
-  requestAnimationFrame(() => document.querySelector(`.day-card[data-lesson="${state.lesson}"]`)?.scrollIntoView({ block: "nearest", behavior: "smooth" }));
+  requestAnimationFrame(() => {
+    const dayRail = $("#dayRail");
+    const activeDay = document.querySelector(`.day-card[data-lesson="${state.lesson}"]`);
+    if (!dayRail || !activeDay) return;
+
+    // 只横向露出当前日期，不能让手机页面因为重绘跳回顶部。
+    const left = activeDay.offsetLeft;
+    const right = left + activeDay.offsetWidth;
+    const visibleLeft = dayRail.scrollLeft;
+    const visibleRight = visibleLeft + dayRail.clientWidth;
+    if (left < visibleLeft || right > visibleRight) {
+      dayRail.scrollTo({
+        left: Math.max(0, left - (dayRail.clientWidth - activeDay.offsetWidth) / 2),
+        behavior: "smooth"
+      });
+    }
+  });
 }
