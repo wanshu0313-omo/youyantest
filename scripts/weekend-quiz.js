@@ -27,9 +27,20 @@ function getQuizSession(lesson) {
 
 function resetQuizSession(lesson) {
   const bank = quizBankFor(lesson);
-  const count = Math.min(lesson.quiz?.count || 3, bank.length);
+  const previousSession = state.quiz[state.lesson];
+  let usedQuestionIds = previousSession?.usedQuestionIds || [];
+  let availableQuestions = bank.filter(question => !usedQuestionIds.includes(question.id));
+
+  // 一轮周末挑战中，先把题库里的题都做一遍，再重新开始随机抽题。
+  if (!availableQuestions.length) {
+    usedQuestionIds = [];
+    availableQuestions = [...bank];
+  }
+
+  const count = Math.min(lesson.quiz?.count || 3, availableQuestions.length);
+  const selectedQuestions = shuffleQuizItems(availableQuestions).slice(0, count);
   state.quiz[state.lesson] = {
-    questions: shuffleQuizItems(bank).slice(0, count).map(question => {
+    questions: selectedQuestions.map(question => {
       const distractor = shuffleQuizItems(bank.filter(item => item.id !== question.id))[0];
       return {
         question,
@@ -41,7 +52,8 @@ function resetQuizSession(lesson) {
       };
     }),
     index: 0,
-    completed: false
+    completed: false,
+    usedQuestionIds: [...usedQuestionIds, ...selectedQuestions.map(question => question.id)]
   };
 }
 
