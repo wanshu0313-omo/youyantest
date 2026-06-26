@@ -18,8 +18,9 @@
 .built-token.skip-token { font-family: Inter, "Noto Sans SC", sans-serif; font-size: 13px; background: #edf7f4; color: #4b837a; box-shadow: none; cursor: default; }
 .built-token.skip-token ruby rt { display: none; }
 .built-token.skip-token:hover { background: #edf7f4; }
-.slot-caret { position: absolute; right: -10px; bottom: 22px; z-index: 2; width: 22px; height: 22px; border: 0; border-radius: 999px; display: grid; place-items: center; padding: 0; font-size: 14px; line-height: 1; color: white; background: linear-gradient(145deg, var(--green), #56b9c7); box-shadow: 0 5px 12px rgba(70,172,143,.24); cursor: pointer; transition: transform .16s ease, background .16s ease; }
-.slot-caret:hover { background: var(--coral); transform: translateY(-1px); }
+.slot-caret { position: absolute; right: -10px; bottom: 22px; z-index: 2; width: 22px; height: 22px; border: 2px solid white; border-radius: 999px; display: grid; place-items: center; padding: 0; font-size: 14px; line-height: 1; color: white; background: linear-gradient(145deg, var(--coral), #ff9a63); box-shadow: 0 5px 12px rgba(255,118,95,.32); cursor: pointer; transition: transform .16s ease, background .16s ease, box-shadow .16s ease; }
+.slot-caret:hover { background: #eb624d; transform: translateY(-1px) scale(1.08); box-shadow: 0 7px 15px rgba(255,118,95,.4); }
+.slot-caret:focus-visible { outline: 3px solid rgba(255,214,107,.78); outline-offset: 2px; }
 .slot-wrap.open .slot-caret { transform: rotate(180deg); }
 .slot-menu { position: absolute; left: 0; top: calc(100% + 5px); z-index: 1001; width: min(330px, 62vw); max-height: 230px; overflow-y: auto; display: none; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 6px; padding: 9px; border: 1px solid #cfe8e1; border-radius: 16px; background: rgba(255,255,255,.98); box-shadow: 0 18px 42px rgba(39,89,85,.2); }
 .slot-wrap.open .slot-menu { display: grid; }
