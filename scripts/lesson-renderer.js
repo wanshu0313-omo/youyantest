@@ -9,6 +9,17 @@ function renderHanzi(item) {
   }).join("")}</div>`;
 }
 
+function renderPhraseExamples(item) {
+  if (!item.examples?.length) return "";
+  return `<div class="phrase-examples">
+    <b>${escapeHTML(textFor(item.examplesTitle || { en: "Example exchanges", ja: "会話例", ko: "대화 예시", zh: "语境示例" }))}</b>
+    ${item.examples.map(example => `<div class="phrase-example-line">
+      ${soundButton(example.audio, textFor(example.text), true)}
+      <span>${escapeHTML(textFor(example.text))}</span>
+    </div>`).join("")}
+  </div>`;
+}
+
 function renderPhrases(phrases) {
   $("#phraseList").innerHTML = phrases.map((item, index) => `
     <div class="phrase-card ${item.type === "builder" ? "builder-card" : ""} ${item.type === "builder" && item.optionGroups?.some(group => state.openSlot === builderSlotKey(index, item, group.slot)) ? "menu-open" : ""} ${index === state.phraseIndex ? "active" : ""}" data-phrase-index="${index}">
@@ -17,6 +28,7 @@ function renderPhrases(phrases) {
           ${item.type === "builder" ? `<div class="builder-line">${sentenceSoundButton(index, item, true)}${renderBuilderSentence(item, index)}</div>` : renderHanzi(item)}
           <div class="translation">${item.translation[state.language]}</div>
           ${item.note ? `<div class="phrase-note"><span aria-hidden="true">💡</span>${escapeHTML(textFor(item.note))}</div>` : ""}
+          ${renderPhraseExamples(item)}
         </div>
         ${item.audio ? soundButton(item.audio, item.hanzi) : ""}
       </div>
