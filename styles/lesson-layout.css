@@ -31,6 +31,13 @@ h1 { font-family: Georgia, "Songti SC", serif; font-weight: 500; font-size: clam
 .phrase-main { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
 .phrase-note { margin-top: 6px; color: #55727c; font-size: 10px; line-height: 1.45; background: rgba(255,248,237,.82); border: 1px solid #ffe0c8; border-radius: 10px; padding: 7px 9px; max-width: 560px; }
 .phrase-note span { margin-right: 5px; }
+.dialogue-block { display: grid; gap: 7px; }
+.dialogue-line { display: flex; align-items: flex-end; gap: 7px; flex-wrap: wrap; }
+.dialogue-speaker { align-self: center; min-width: 24px; color: var(--green); font-size: 15px; font-weight: 900; }
+.dialogue-line > .sound.compact { align-self: center; flex: 0 0 auto; width: 28px; height: 28px; }
+.dialogue-line .hanzi-clickable { display: inline-flex; }
+.dialogue-line .hanzi-char { min-height: 62px; }
+.dialogue-line .hanzi-punctuation { font-size: 25px; color: var(--ink); }
 .phrase-examples { margin-top: 7px; display: grid; gap: 5px; max-width: 560px; border: 1px dashed rgba(95,196,154,.55); border-radius: 12px; padding: 7px 9px; background: rgba(241,252,248,.72); color: #496f78; font-size: 10px; line-height: 1.35; }
 .phrase-examples > b { color: #3b9a7b; font-size: 10px; }
 .phrase-example-line { display: flex; align-items: center; gap: 7px; }
