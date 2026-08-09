@@ -88,7 +88,7 @@ window.QUIZ_BANKS.week4Review = [
   {
     id: "week4-nar-bu-re",
     hanzi: "哪儿不热？我想去！",
-    pinyin: "Nǎr bù rè? Wǒ xiǎng qù!",
+    pinyin: "Nǎr bú rè? Wǒ xiǎng qù!",
     audio: "audio/words/8.6/哪儿不热？我想去！.m4a",
     meaning: { en:"Where is it not hot? I want to go!", ja:"どこか暑くないとこ、行きたい！", ko:"어디 안 더운 곳 없어? 가고 싶어!", zh:"哪儿不热？我想去！" }
   },
