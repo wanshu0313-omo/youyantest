@@ -47,10 +47,10 @@ window.LESSONS.lesson20260806 = {
     },
     {
       hanzi: "哪儿不热？我想去！",
-      pinyin: "Nǎr bù rè? Wǒ xiǎng qù!",
+      pinyin: "Nǎr bú rè? Wǒ xiǎng qù!",
       chars: [
         {h:"哪儿", p:"Nǎr", a:"audio/words/8.6/哪儿.m4a"},
-        {h:"不热", p:"bù rè", a:"audio/words/8.6/不热.m4a"},
+        {h:"不热", p:"bú rè", a:"audio/words/8.6/不热.m4a"},
         {h:"？"},
         {h:"我想", p:"Wǒ xiǎng", a:"audio/words/8.6/我想.m4a"},
         {h:"去", p:"qù", a:"audio/words/8.6/去.m4a"},
